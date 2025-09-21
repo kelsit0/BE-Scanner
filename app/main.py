@@ -1,9 +1,11 @@
 from typing import Union
 
 from fastapi import FastAPI
+from app.api import analyze
 
 app = FastAPI()
 
+app.include_router(analyze.router, prefix="/api")
 
 @app.get("/")
 async def read_root():
