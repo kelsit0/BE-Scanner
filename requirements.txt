@@ -37,3 +37,11 @@ urllib3==2.5.0
 uvicorn==0.36.0
 watchfiles==1.1.0
 websockets==15.0.1
+torch
+torchvision
+transformers
+open_clip_torch
+scikit-learn
+pillow
+sacremoses
+protobuf

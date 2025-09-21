@@ -1,0 +1,21 @@
+from typing import Union
+
+from fastapi import FastAPI
+from app.api import analyze
+
+app = FastAPI()
+
+app.include_router(analyze.router, prefix="/api")
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+@app.get("/")
+async def root():
+    return {"message": "Radiografía Analyzer API lista 🚀"}
+
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
