@@ -1,7 +1,8 @@
 from typing import Union
 
 from fastapi import FastAPI
-from app.api import analyze
+from app.api import analyze, auth
+from app.core.config import init_db
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -10,6 +11,9 @@ app = FastAPI()
 
 app.include_router(analyze.router, prefix="/api")
 
+app.include_router(analyze.router, prefix="/api")
+app.include_router(auth.router, prefix="/auth")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:4200"],  # tu app Angular
@@ -17,6 +21,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.on_event("startup")
+def on_startup():
+    init_db()
+
 
 @app.get("/")
 async def read_root():
