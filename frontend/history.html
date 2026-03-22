@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historial</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<button onclick="location.href='doctor_dashboard.html'">Volver</button>
+<button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<header><h1>Historial</h1></header>
+
+<div class="container">
+
+<table>
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Diagnóstico</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="historyTable"></tbody>
+</table>
+
+<hr>
+
+<img id="analysisImage" width="300">
+
+<p id="analysisReport"></p>
+
+<input type="text" id="confirmInput" placeholder="Confirmar diagnóstico">
+<button onclick="confirmDiagnosis()">Confirmar</button>
+
+<textarea id="notes" placeholder="Notas médicas"></textarea>
+<button onclick="saveNotes()">Guardar</button>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+loadHistory();
+</script>
+
+</body>
+</html>

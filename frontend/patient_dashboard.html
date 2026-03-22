@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Paciente</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<header><h1>Panel del Paciente</h1></header>
+
+<div class="container">
+
+<h3 id="patientName"></h3>
+
+<table>
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Diagnóstico</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="patientHistory"></tbody>
+
+</table>
+
+<hr>
+
+<img id="analysisImage" width="300">
+<p id="analysisReport"></p>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+loadPatientDashboard();
+</script>
+
+</body>
+</html>

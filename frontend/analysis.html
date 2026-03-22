@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Análisis</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<button onclick="location.href='doctor_dashboard.html'">Volver</button>
+<button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<header><h1>Análisis</h1></header>
+
+<div class="container">
+
+<h3 id="patientName"></h3>
+
+<input type="file" id="imageInput" onchange="previewImage()">
+
+<img id="preview" width="250">
+
+<button onclick="uploadImage()">Analizar</button>
+
+<h3>Resultado</h3>
+<div id="result"></div>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+showPatient();
+</script>
+
+</body>
+</html>

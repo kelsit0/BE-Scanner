@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Doctor</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<header><h1>Panel del Doctor</h1></header>
+
+<div class="container">
+
+<h2>Estadísticas</h2>
+<div id="stats"></div>
+
+<h2>Pacientes</h2>
+<ul id="patients"></ul>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+loadDoctorDashboard();
+loadPatients();
+</script>
+
+</body>
+</html>

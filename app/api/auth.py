@@ -7,13 +7,13 @@ from app.core.security import hash_password, verify_password
 router = APIRouter()
 
 @router.post("/register")
-def register(username: str, password: str, session: Session = Depends(get_session)):
+def register(username: str,password: str,role: str = "patient",session: Session = Depends(get_session)):
     statement = select(User).where(User.username == username)
     user = session.exec(statement).first()
     if user:
         raise HTTPException(status_code=400, detail="Username already registered")
 
-    new_user = User(username=username, password=hash_password(password))
+    new_user = User(username=username,password=hash_password(password),role=role)
     session.add(new_user)
     session.commit()
     session.refresh(new_user)
@@ -27,4 +27,4 @@ def login(username: str, password: str, session: Session = Depends(get_session))
     if not user or not verify_password(password, user.password):
         raise HTTPException(status_code=400, detail="Invalid credentials")
     
-    return {"message": f"Welcome {user.username} 🚀"}
+    return {"message": f"Welcome {user.username} 🚀","role": user.role}

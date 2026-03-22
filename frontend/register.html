@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header><h1>Registro</h1></header>
+
+<div class="container">
+
+<form onsubmit="register(event)">
+
+<input type="text" id="username" placeholder="Usuario">
+<input type="password" id="password" placeholder="Contraseña">
+
+<select id="role">
+<option value="patient">Paciente</option>
+<option value="doctor">Doctor</option>
+</select>
+
+<button type="submit">Registrarse</button>
+
+</form>
+
+<button onclick="location.href='login.html'">Volver</button>
+
+</div>
+
+<script src="js/api.js"></script>
+
+</body>
+</html>
